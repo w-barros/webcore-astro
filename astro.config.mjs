@@ -6,13 +6,6 @@ export default defineConfig({
     vite: {
         ssr: {
             noExternal: ['webcoreui']
-        },
-        css: {
-            preprocessorOptions: {
-                scss: {
-                    api: 'modern-compiler'
-                }
-            }
         }
     }
 })
