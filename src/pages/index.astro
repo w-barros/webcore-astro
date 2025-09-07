@@ -6,6 +6,7 @@ import { Menu } from "webcoreui/astro";
 import { ThemeSwitcher } from "webcoreui/astro";
 import Hero from "@blocks/Hero/Hero.astro";
 import { Timeline, TimelineItem } from "webcoreui/astro";
+import "../styles/global.css";
 
 const accordionItems = [
   {
@@ -45,9 +46,16 @@ import FAQ from "@blocks/Faq/FAQ.astro";
 import IconList from "@blocks/Iconlist/IconList.astro";
 
 const stepper = [
-  { title: "Conversa por Whatsapp ou Chamada 💬" },
-  { title: "Criamos seu site e cuidamos de tudo 🛠️" },
-  { title: "Site no ar! ✅" },
+  {
+    title: "Conversa por Whatsapp ou Ligação",
+    subTitle: "Queremos te ouvir 💬",
+  },
+  {
+    title: "Você envia seu Logo, Cores e Texto",
+    subTitle: "Se não tiver nós criamos ✍️",
+  },
+  { title: "Criamos seu site", subTitle: "Cuidamos de tudo 🛠️" },
+  { title: "Site no ar! ✅", subTitle: "➕ Clientes, ➕ Credibilidade" },
 ];
 
 const items = [
@@ -104,65 +112,64 @@ const items = [
   </div>
 
   <!-- Why have a site?  -->
-  <div style="margin-top: 6rem;">
-    <h2>Por que ter um site para seu negócio?</h2>
-    <div class="flex">
+  <div class="mt-24">
+    <h1 class="text-2xl md:text-3xl font-bold text-center mb-6">
+      Por que ter um site para seu negócio?
+    </h1>
+    <div class="flex flex-col md:flex-row items-start gap-6 md:gap-8">
       <img
         src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
         alt="Business Website"
-        style="width: 50%; height: auto; border-radius: 8px; margin-right: 2rem;"
+        loading="lazy"
+        decoding="async"
+        class="w-full md:w-1/2 h-auto rounded-lg object-cover"
       />
 
-      <div>
-        <p class="text-left">
+      <div class="w-full md:w-1/2">
+        <p
+          class="!text-left md:[text-align:justify] text-base md:text-lg leading-8 max-w-prose"
+        >
           Um site é a sua base na internet: gera credibilidade, aparece no
           Google e atende 24/7. Centraliza sua marca, capta contatos e mede
           resultados — sem depender só das redes.
         </p>
-        <IconList
-          columns={2}
-          items={[
-            {
-              icon: "circle-check",
-              text: "Seu negócio visível 24/4",
-              color: "var(--w-color-success)",
-            },
-            {
-              icon: "circle-check",
-              text: "Credibilidade",
-              color: "var(--w-color-success)",
-            },
-            {
-              icon: "circle-check",
-              text: "Mais clientes e negócios",
-              color: "var(--w-color-success)",
-            },
-            {
-              icon: "circle-check",
-              text: "Atendimento ao cliente",
-              color: "var(--w-color-success)",
-            },
-            {
-              icon: "circle-check",
-              text: "Vantagem competitiva",
-              color: "var(--w-color-success)",
-            },
-            {
-              icon: "circle-check",
-              text: "Análise de dados",
-              color: "var(--w-color-success)",
-            },
-          ]}
-        />
+        <div class="mt-6">
+          <IconList
+            columns={2}
+            items={[
+              {
+                icon: "circle-check",
+                text: "Seu negócio visível 24/7",
+                color: "var(--w-color-success)",
+              },
+              {
+                icon: "circle-check",
+                text: "Credibilidade",
+                color: "var(--w-color-success)",
+              },
+              {
+                icon: "circle-check",
+                text: "Mais clientes e faturamento",
+                color: "var(--w-color-success)",
+              },
+              {
+                icon: "circle-check",
+                text: "Vantagem sobre a concorrência",
+                color: "var(--w-color-success)",
+              },
+            ]}
+          />
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Grid with icons -->
-  <div style="margin-top: 6rem;">
+  <div class="mt-24">
     <h2>Nosso diferencial</h2>
     <GridWithIcons items={items} />
   </div>
+
   <!-- <div style="margin-top: 3rem; margin-bottom: 3rem;">
 <FAQ items={accordionItems} title='Como funciona?'>
 <Timeline>
@@ -175,8 +182,10 @@ const items = [
 </div> -->
 
   <!-- Portfolio -->
-  <div style="margin-top: 3rem;">
-    <h2>Nossos trabalhos</h2>
+  <div class="mt-24">
+    <h1 class="text-2xl md:text-3xl font-bold text-center mb-6">
+      Nossos Modelos de Site
+    </h1>
   </div>
 
   <div>
@@ -184,8 +193,10 @@ const items = [
   </div>
 
   <!-- Stepper -->
-  <div style="margin-top: 3rem; margin-bottom: 3rem;">
-    <h2>Como funciona</h2>
+  <div class="mt-24">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">
+      Como funciona
+    </h2>
     <Stepper items={stepper} />
   </div>
 
