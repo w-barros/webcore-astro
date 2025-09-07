@@ -16,8 +16,18 @@
 
 <style lang="scss" is:global>
     @use 'webcoreui/styles' as *;
+    
     @include setup((
         fontRegular: '/fonts/Inter-Regular.woff2',
-        fontBold: '/fonts/Inter-Bold.woff2'
+        fontBold: '/fonts/Inter-Bold.woff2',
+            themes: (
+          dark: '.theme-dark',
+        light: '.theme-light',
+        midnight: '.theme-blue',
+        vintage: '.theme-vintage',
+        amber: '.theme-yellow',
+        synthwave: '.theme-synthwave',
+        velvet: '.theme-velvet'
+    )
     ));
 </style>

@@ -1,36 +1,226 @@
 ---
-import { Button, Icon } from 'webcoreui/astro'
+import { Button, Icon } from "webcoreui/astro";
+import { Accordion } from "webcoreui/astro";
+import Layout from "@components/Layout.astro";
+import { Menu } from "webcoreui/astro";
+import { ThemeSwitcher } from "webcoreui/astro";
+import Hero from "@blocks/Hero/Hero.astro";
+import { Timeline, TimelineItem } from "webcoreui/astro";
 
-import Layout from '@components/Layout.astro'
+const accordionItems = [
+  {
+    title: "Do you offer support?",
+    content: "We provide 30 days of support.",
+  },
+  {
+    title: "Can I request changes?",
+    content: "Yes!",
+  },
+  {
+    title: "Are there any refunds?",
+    content: "Hopefully.",
+  },
+  {
+    title: "Can I upgrade later?",
+    content: "Of course!",
+  },
+];
+
+const themes = {
+  "#252525": "theme-dark",
+  "#DDD": "theme-light",
+  "#415A77": "theme-blue",
+  "#FCBA28": "theme-yellow",
+};
+
+const menu = [
+  { name: "Home", href: "/", active: true },
+  { name: "Docs", href: "/docs/menu", target: "_blank" },
+];
+const menuLogo = { url: "/logo.svg", width: 100 };
+
+import { Stepper } from "webcoreui/astro";
+import GridWithIcons from "@blocks/Gridwithicons/GridWithIcons.astro";
+import FAQ from "@blocks/Faq/FAQ.astro";
+import IconList from "@blocks/Iconlist/IconList.astro";
+
+const stepper = [
+  { title: "Conversa por Whatsapp ou Chamada 💬" },
+  { title: "Criamos seu site e cuidamos de tudo 🛠️" },
+  { title: "Site no ar! ✅" },
+];
+
+const items = [
+  {
+    icon: "alert",
+    title: "A melhor tecnologia",
+    text: "Utilizamos as melhores tecnologias do mercado para criar sites rápidos, seguros e modernos.",
+  },
+  {
+    icon: "check",
+    title: "Design personalizado",
+    text: "Criamos um design exclusivo para o seu site, alinhado com a identidade da sua marca.",
+  },
+  {
+    icon: "circle-check",
+    title: "Responsividade",
+    text: "Garantimos que seu site funcione perfeitamente em todos os dispositivos, desde desktops até smartphones.",
+  },
+  {
+    icon: "search",
+    title: "Otimização para motores de busca (SEO)",
+    text: "Implementamos as melhores práticas de SEO para ajudar seu site a alcançar uma melhor posição nos resultados de busca.",
+  },
+  {
+    icon: "home",
+    title: "Suporte contínuo",
+    text: "Oferecemos suporte contínuo para garantir que seu site esteja sempre atualizado e funcionando perfeitamente.",
+  },
+];
 ---
 
 <Layout>
-	<h1 class="flex center md">
-		Welcome to <img src="logo.svg" width="160" />
-	</h1>
-	<p>
-		Edit <code>pages/index.astro</code> to get started.
-		For documentation, visit <a href="https://webcoreui.dev" target="_blank">webcoreui.dev</a>
-	</p>
-	<div class="flex justify-center xs">
-		<Button href="https://webcoreui.dev" target="_blank">
-			Get Started
-		</Button>
-		<Button
-			href="https://github.com/Frontendland/webcoreui"
-			target="_blank"
-			theme="secondary"
-		>
-			<Icon type="github" size={20} />
-			GitHub
-		</Button>
-	</div>
+  <Menu items={menu} logo={menuLogo} />
+  <div style="margin-top: 3rem;">
+    <Hero
+      heading="Seu site profissional, rápido e encontrado no Google."
+      subHeading="Criamos, hospedamos e mantemos tudo pra você. Você foca no seu negócio — o resto é com a gente."
+      buttons={[
+        { text: "Começar agora ->", theme: "success" },
+        { text: "Ver exemplos", theme: "secondary", icon: "info" },
+      ]}
+      badge={{
+        rounded: true,
+        theme: "outline",
+        text: "🟢 EQUIPE DISPONÍVEL!",
+      }}
+      image={{
+        src: "https://webcoreui.dev/img/placeholder1.png",
+        alt: "Banner",
+        width: 500,
+        height: 500, //200
+      }}
+    />
+  </div>
+
+  <!-- Why have a site?  -->
+  <div style="margin-top: 6rem;">
+    <h2>Por que ter um site para seu negócio?</h2>
+    <div class="flex">
+      <img
+        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        alt="Business Website"
+        style="width: 50%; height: auto; border-radius: 8px; margin-right: 2rem;"
+      />
+
+      <div>
+        <p class="text-left">
+          Um site é a sua base na internet: gera credibilidade, aparece no
+          Google e atende 24/7. Centraliza sua marca, capta contatos e mede
+          resultados — sem depender só das redes.
+        </p>
+        <IconList
+          columns={2}
+          items={[
+            {
+              icon: "circle-check",
+              text: "Seu negócio visível 24/4",
+              color: "var(--w-color-success)",
+            },
+            {
+              icon: "circle-check",
+              text: "Credibilidade",
+              color: "var(--w-color-success)",
+            },
+            {
+              icon: "circle-check",
+              text: "Mais clientes e negócios",
+              color: "var(--w-color-success)",
+            },
+            {
+              icon: "circle-check",
+              text: "Atendimento ao cliente",
+              color: "var(--w-color-success)",
+            },
+            {
+              icon: "circle-check",
+              text: "Vantagem competitiva",
+              color: "var(--w-color-success)",
+            },
+            {
+              icon: "circle-check",
+              text: "Análise de dados",
+              color: "var(--w-color-success)",
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid with icons -->
+  <div style="margin-top: 6rem;">
+    <h2>Nosso diferencial</h2>
+    <GridWithIcons items={items} />
+  </div>
+  <!-- <div style="margin-top: 3rem; margin-bottom: 3rem;">
+<FAQ items={accordionItems} title='Como funciona?'>
+<Timeline>
+    <TimelineItem title="Conversa 💬">Queremos te ouvir</TimelineItem>
+    <TimelineItem title="Criamos o site, e cuidamos de tudo 🏗️">Hospedagem, domínio, design ... deixa tudo conosco!</TimelineItem>
+    <TimelineItem title="Site no ar! ✅">+ Clientes, + Credibilidade, vem com a Webcore.</TimelineItem>
+</Timeline>
+    
+</FAQ>
+</div> -->
+
+  <!-- Portfolio -->
+  <div style="margin-top: 3rem;">
+    <h2>Nossos trabalhos</h2>
+  </div>
+
+  <div>
+    <ThemeSwitcher themes={themes} />
+  </div>
+
+  <!-- Stepper -->
+  <div style="margin-top: 3rem; margin-bottom: 3rem;">
+    <h2>Como funciona</h2>
+    <Stepper items={stepper} />
+  </div>
+
+  <!-- FAQ -->
+  <div style="margin-top: 3rem; margin-bottom: 3rem;">
+    <h2>Duvidas</h2>
+    <Accordion
+      items={[
+        {
+          title: "What is Webcore?",
+          content:
+            "Webcore is an open-source, customizable UI component library for Astro, Svelte, and React.",
+        },
+        {
+          title: "How can I start using Webcore?",
+          content:
+            "Run <code>npm i webcoreui</code> in your terminal to install the package.",
+        },
+        {
+          title: "Is there anything else I need to know?",
+          content: "Yes! There's plenty of information in the documentation.",
+        },
+      ]}
+    />
+  </div>
 </Layout>
 
 <style lang="scss">
-	@use 'webcoreui/config' as *;
+  @use "webcoreui/config" as *;
 
-	p {
-		@include typography(center);
-    }
+  p {
+    @include typography(center);
+  }
 </style>
+
+<script>
+  document.body.className = localStorage.getItem("w-theme") || "theme-dark";
+</script>

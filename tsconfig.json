@@ -4,7 +4,12 @@
         "baseUrl": ".",
         "strictNullChecks": true,
         "paths": {
-            "@components/*": ["src/components/*"]
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@blocks/*": [
+                "src/blocks/*"
+            ]
         }
     }
 }
